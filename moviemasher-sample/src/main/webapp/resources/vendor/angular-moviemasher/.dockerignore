@@ -1,0 +1,9 @@
+.DS_Store
+config/docker/node/node_modules*
+app/user*
+.git/*
+source/*
+*.eot
+*.svg
+*.vfb
+*.markdown

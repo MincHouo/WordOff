@@ -1,0 +1,27 @@
+{
+  "name": "@moviemasher/angular-moviemasher",
+  "description": "Example deployment of moviemasher.js and moviemasher.rb utilizing AngularJS, Bootstrap and PHP",
+  "version": "1.0.20",
+  "author": {
+    "name": "Movie Masher",
+    "email": "support@moviemasher.com"
+  },
+  "license": "MPL-2.0",
+  "bugs": "https://github.com/moviemasher/angular-moviemasher/issues",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moviemasher/angular-moviemasher.git"
+  },
+  "dependencies": {
+    "angular-animate": "=1.6.6",
+    "angular-bootstrap-colorpicker": "~3.0.8",
+    "angular-file-upload": "=2.5.0",
+    "angular-resource": "=1.6.6",
+    "angular-ui-bootstrap": "=2.3.0",
+    "angular": "=1.6.6",
+    "bootstrap": "=3.3.6",
+    "@moviemasher/moviemasher.js": "=4.0.22",
+    "opentype.js": "=0.7.3",
+    "scriptjs": "=2.5.8"
+  }
+}

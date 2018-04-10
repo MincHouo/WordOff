@@ -1,0 +1,31 @@
+version: '2'
+services:
+  angular_moviemasher:
+    image: moviemasher/angular-moviemasher
+    container_name: angular_moviemasher
+    build:
+      context: ../../../
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - "../../../log:/tmp/moviemasher/log/"
+      - "../../../src:/var/www/html/angular-moviemasher/src"
+      - "../moviemasher.ini:/var/www/config/moviemasher.ini"
+      - "../../../app:/var/www/html/angular-moviemasher/app"
+      - "../../../dist:/var/www/html/angular-moviemasher/dist"
+      - "../../../node_modules:/var/www/html/angular-moviemasher/node_modules"
+  moviemasher_rb:
+    image: moviemasher/moviemasher.rb
+    container_name: angular_moviemasher_rb
+    build:
+      context: ../../../../moviemasher.rb/
+      dockerfile: ./Dockerfile
+    volumes_from:
+      - angular_moviemasher
+    volumes:
+      - "../../../tmp/error:/tmp/moviemasher/error"
+      - "../../../tmp/render:/tmp/moviemasher/render"
+      - "../../../../moviemasher.rb/:/mnt/moviemasher.rb"
+    command: process_loop -v debug --render_save=1
+    tty: true

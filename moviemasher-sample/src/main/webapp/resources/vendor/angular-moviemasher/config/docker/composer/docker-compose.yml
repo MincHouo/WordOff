@@ -1,0 +1,12 @@
+version: '2'
+services:
+  composer:
+    build:
+      context: ../../../
+      dockerfile: ./config/docker/composer/Dockerfile-composer
+    image: angular_moviemasher_composer
+    volumes:
+      - "../../../app/php/service/aws:/mnt/aws"
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
+    command: php /mnt/composer.phar install
